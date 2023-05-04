@@ -14,7 +14,7 @@ from .serializers import CategorySerializer, ProductSerializer, OrderSerializer,
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    authentication_classes = [TokenAuthentication,SessionAuthentication]
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticatedOrSafeMethods]
 
 
@@ -37,7 +37,6 @@ class ProductViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', ]
     ordering_fields = ['created', ]
-    pagination_class = TweetPagination
 
 
 @api_view(['GET'])
